@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
+@import "tailwindcss";
+@import "./styles/custom.css";
+
+:root {
+  --color-blueprint: #05070d;
+  --color-blueprint-light: #0d1424;
+  --color-blueprint-lighter: #182640;
+  --color-white: #ffffff;
+  --color-red: #ff3860;
+  --color-red-dim: #d81b46;
+  --color-red-glow: rgba(255, 56, 96, 0.45);
+  --color-blue: #2dd4ff;
+  --color-blue-glow: rgba(45, 212, 255, 0.45);
+  --color-grid-line: rgba(45, 212, 255, 0.07);
+  --color-grid-line-strong: rgba(45, 212, 255, 0.16);
+  --color-muted: #7a90ad;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+  background-color: var(--color-blueprint);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(45, 212, 255, 0.14), transparent 42%),
+    radial-gradient(circle at 88% 82%, rgba(255, 56, 96, 0.1), transparent 42%),
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(var(--color-grid-line-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line-strong) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px, 100px 100px, 100px 100px;
+  background-attachment: fixed;
+  background-position: 0 0, 0 0, -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+.font-mono-label {
+  font-family: var(--font-mono);
+}
