@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from "react-icons/fi";
+import { FiLinkedin, FiMail, FiArrowUp } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -17,7 +18,6 @@ export default function Footer() {
 
       <div className="px-6 py-14 md:px-12">
         <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
-
           <div className="max-w-xs">
             <p className="flex items-center gap-2 text-xl font-semibold text-white">
               <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-(--color-red)" />
@@ -27,9 +27,11 @@ export default function Footer() {
               Arch. Portfolio
             </p>
             <p className="mt-4 text-sm leading-relaxed text-(--color-muted)">
-              We transform ideas into iconic spaces through creativity, innovation, and exceptional craftsmanship.
+              An architectural portfolio, drafted and built in phases —
+              from concept sketch to finished structure.
             </p>
           </div>
+
           <div className="flex flex-col gap-3">
             <span className="font-mono-label text-[10px] uppercase tracking-[0.25em] text-(--color-red)">
               Navigate
@@ -40,20 +42,19 @@ export default function Footer() {
               <Link to="/contact" className="link-underline w-fit">Contact</Link>
             </nav>
           </div>
-
           <div className="flex flex-col gap-3">
             <span className="font-mono-label text-[10px] uppercase tracking-[0.25em] text-(--color-red)">
               Connect
             </span>
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com"
+                href="https://wa.me/2349032902687"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="GitHub"
+                aria-label="WhatsApp"
                 className="flex h-10 w-10 items-center justify-center border border-(--color-grid-line-strong) text-(--color-muted) transition-all hover:border-(--color-blue) hover:text-(--color-blue) hover:shadow-[0_0_14px_var(--color-blue-glow)]"
               >
-                <FiGithub />
+                <FaWhatsapp />
               </a>
               <a
                 href="https://linkedin.com"
@@ -74,11 +75,10 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
         <div className="font-mono-label mx-auto mt-12 flex max-w-6xl flex-col items-center gap-3 border-t border-(--color-grid-line-strong) pt-6 text-center text-[10px] uppercase tracking-[0.2em] text-(--color-muted) md:flex-row md:justify-between md:text-left">
           <p>© {year} Shughar Enterprises. All rights reserved.</p>
           <p className="text-(--color-muted)/70">
-           Designed for today. Built for tomorrow.
+            Built with React · Node.js · MongoDB
           </p>
           <button
             onClick={scrollToTop}

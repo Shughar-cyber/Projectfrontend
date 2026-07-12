@@ -1,4 +1,5 @@
-import { FiMail, FiGithub, FiLinkedin, FiSend } from "react-icons/fi";
+import { FiMail, FiLinkedin, FiSend } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Contact() {
   return (
@@ -9,21 +10,21 @@ export default function Contact() {
         </p>
         <h1 className="text-2xl font-semibold text-white">Get in touch</h1>
         <p className="mt-3 text-sm text-(--color-muted)">
-          Your dream project starts with a conversation. Get in touch and let's build something remarkable.
-
+          Questions about the project, or interested in working together?
+          Reach out directly.
         </p>
 
         <a
-          href="mailto:shughar.arch@gmail.com"
+          href="mailto:shugharenterprises@gmail.com"
           className="btn btn-solid mt-6 w-full"
         >
           <FiSend />
-          shughar.arch@gmail.com
+          shugharenterprises@gmail.com
         </a>
 
         <div className="mt-6 flex items-center justify-center gap-5 text-lg text-(--color-muted)">
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-white" aria-label="GitHub">
-            <FiGithub />
+          <a href="https://wa.me/2349032902687" target="_blank" rel="noreferrer" className="transition-colors hover:text-white" aria-label="WhatsApp">
+            <FaWhatsapp />
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="transition-colors hover:text-white" aria-label="LinkedIn">
             <FiLinkedin />
