@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { FiMail, FiKey, FiCheckCircle } from "react-icons/fi";
 import KenBurnsBackground from "../components/KenBurnsBackground";
 import SuccessModal from "../components/SuccessModal";
-import bgImage from "../assets/signup-bg.jpg";
+import bgImage from "../Assets/signup-bg.jpg";
 
 export default function VerifyEmail() {
   const { verifyEmail, resendVerification } = useAuth();

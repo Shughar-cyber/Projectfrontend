@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { FiLogIn, FiUserPlus, FiArrowRight, FiGrid } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
 import BlueprintBuilding from "../components/BlueprintBuilding";
-import buildingOne from "../assets/building-1.jpg";
-import buildingTwo from "../assets/building-2.jpg";
+import buildingOne from "../Assets/building-1.jpg";
+import buildingTwo from "../Assets/building-2.jpg";
 
 const featured = [
   {

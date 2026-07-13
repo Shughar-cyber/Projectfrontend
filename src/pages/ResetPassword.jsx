@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { FiLock, FiMail, FiKey, FiEye, FiEyeOff } from "react-icons/fi";
 import KenBurnsBackground from "../components/KenBurnsBackground";
 import SuccessModal from "../components/SuccessModal";
-import bgImage from "../assets/login-bg.jpg";
+import bgImage from "../Assets/login-bg.jpg";
 
 export default function ResetPassword() {
   const { resetPassword } = useAuth();

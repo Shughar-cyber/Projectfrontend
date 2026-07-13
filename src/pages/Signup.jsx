@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FiUserPlus, FiMail, FiLock, FiUser, FiEye, FiEyeOff } from "react-icons/fi";
 import KenBurnsBackground from "../components/KenBurnsBackground";
-import bgImage from "../assets/signup-bg.jpg";
+import bgImage from "../Assets/signup-bg.jpg";
 
 export default function Signup() {
   const { signup } = useAuth();

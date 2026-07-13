@@ -3,11 +3,11 @@ import BuildingCard from "../components/BuildingCard";
 import Reveal from "../components/Reveal";
 import BlueprintBuilding from "../components/BlueprintBuilding";
 
-import projectOne from "../assets/explore/project-1.jpg";
-import projectTwo from "../assets/explore/project-2.jpg";
-import projectThree from "../assets/explore/project-3.jpg";
-import projectFour from "../assets/explore/project-4.jpg";
-import projectFive from "../assets/explore/project-5.jpg";
+import projectOne from "../Assets/explore/project-1.jpg";
+import projectTwo from "../Assets/explore/project-2.jpg";
+import projectThree from "../Assets/explore/project-3.jpg";
+import projectFour from "../Assets/explore/project-4.jpg";
+import projectFive from "../Assets/explore/project-5.jpg";
 
 const projects = [
   {

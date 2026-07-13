@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { FiMail, FiSend } from "react-icons/fi";
 import KenBurnsBackground from "../components/KenBurnsBackground";
-import bgImage from "../assets/login-bg.jpg";
+import bgImage from "../Assets/login-bg.jpg";
 
 export default function ForgotPassword() {
   const { forgotPassword } = useAuth();

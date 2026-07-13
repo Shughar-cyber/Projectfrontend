@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { FiLogIn, FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import KenBurnsBackground from "../components/KenBurnsBackground";
 import SuccessModal from "../components/SuccessModal";
-import bgImage from "../assets/login-bg.jpg";
+import bgImage from "../Assets/login-bg.jpg";
 
 export default function Login() {
   const { login } = useAuth();
