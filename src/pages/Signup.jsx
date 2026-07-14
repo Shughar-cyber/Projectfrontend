@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { FiUserPlus, FiMail, FiLock, FiUser, FiEye, FiEyeOff, FiShield, FiArrowRight } from "react-icons/fi";
+import { FiUserPlus, FiMail, FiLock, FiUser, FiEye, FiEyeOff, FiShield, FiArrowRight, FiPhone } from "react-icons/fi";
 import KenBurnsBackground from "../components/KenBurnsBackground";
 import bgImage from "../Assets/signup-bg.jpg";
 
 export default function Signup() {
   const { signup } = useAuth();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ username: "", name: "", email: "", password: "", phone: "" });
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -19,6 +19,19 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
+
+    // Basic client-side validation for required feed fields
+    if (!form.username || form.username.length < 3) {
+      setError("Please provide a username (at least 3 characters).");
+      return;
+    }
+    const phoneClean = form.phone.replace(/[^0-9+]/g, "");
+    const phoneValid = /^\+?[0-9]{7,15}$/.test(phoneClean);
+    if (!phoneValid) {
+      setError("Please provide a valid phone number (digits, optional +).");
+      return;
+    }
+
     setSubmitting(true);
     try {
       await signup(form);
@@ -62,6 +75,21 @@ export default function Signup() {
         <div className="space-y-4">
           <div className="rounded-2xl border border-(--color-grid-line-strong) bg-white/5 p-4">
             <label className="mb-2 flex items-center gap-2 text-xs uppercase tracking-widest text-(--color-muted)">
+              <FiUser /> Username
+            </label>
+            <input
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+              required
+              minLength={3}
+              className="w-full bg-transparent py-2 text-white outline-none placeholder:text-(--color-muted)"
+              placeholder="Choose a username"
+            />
+          </div>
+
+          <div className="rounded-2xl border border-(--color-grid-line-strong) bg-white/5 p-4">
+            <label className="mb-2 flex items-center gap-2 text-xs uppercase tracking-widest text-(--color-muted)">
               <FiUser /> Name
             </label>
             <input
@@ -71,6 +99,20 @@ export default function Signup() {
               required
               className="w-full bg-transparent py-2 text-white outline-none placeholder:text-(--color-muted)"
               placeholder="Your full name"
+            />
+          </div>
+
+          <div className="rounded-2xl border border-(--color-grid-line-strong) bg-white/5 p-4">
+            <label className="mb-2 flex items-center gap-2 text-xs uppercase tracking-widest text-(--color-muted)">
+              <FiPhone /> Phone
+            </label>
+            <input
+              name="phone"
+              value={form.phone}
+              onChange={handleChange}
+              required
+              className="w-full bg-transparent py-2 text-white outline-none placeholder:text-(--color-muted)"
+              placeholder="e.g. +2348012345678"
             />
           </div>
 

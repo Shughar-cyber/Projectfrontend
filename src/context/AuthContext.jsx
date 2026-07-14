@@ -5,6 +5,24 @@ const AuthContext = createContext(null);
 
 const INACTIVITY_LIMIT_MS = 5 * 60 * 1000;
 
+const normalizeUser = (userData) => {
+  if (!userData) return null;
+
+  const persistedUserId = window.localStorage.getItem("shughar-user-id");
+  const incomingUserId = userData.userId || userData.id || userData._id || userData.uuid;
+  const resolvedUserId = incomingUserId || persistedUserId || `USR-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+
+  if (!persistedUserId) {
+    window.localStorage.setItem("shughar-user-id", resolvedUserId);
+  }
+
+  return {
+    ...userData,
+    phone: userData.phone || userData.mobile || userData.phoneNumber || "",
+    userId: resolvedUserId,
+  };
+};
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -13,7 +31,7 @@ export function AuthProvider({ children }) {
     const checkSession = async () => {
       try {
         const { data } = await api.get("/auth/me");
-        setUser(data.user);
+        setUser(normalizeUser(data.user));
       } catch {
         setUser(null);
       } finally {
@@ -23,15 +41,16 @@ export function AuthProvider({ children }) {
     checkSession();
   }, []);
 
-  const signup = async ({ name, email, password }) => {
-    const { data } = await api.post("/auth/signup", { name, email, password });
+  const signup = async ({ name, email, password, username, phone }) => {
+    const { data } = await api.post("/auth/signup", { name, email, password, username, phone });
     return data;
   };
 
   const login = async ({ email, password }) => {
     const { data } = await api.post("/auth/login", { email, password });
-    setUser(data.user);
-    return data.user;
+    const normalizedUser = normalizeUser(data.user);
+    setUser(normalizedUser);
+    return normalizedUser;
   };
 
   const logout = async () => {
@@ -63,10 +82,11 @@ export function AuthProvider({ children }) {
 
   }, [user]);
 
-  const updateProfile = async ({ name, email }) => {
-    const { data } = await api.patch("/users/profile", { name, email });
-    setUser(data.user);
-    return data.user;
+  const updateProfile = async ({ name, email, username, phone }) => {
+    const { data } = await api.patch("/users/profile", { name, email, username, phone });
+    const normalizedUser = normalizeUser(data.user);
+    setUser(normalizedUser);
+    return normalizedUser;
   };
 
   const changePassword = async ({ currentPassword, newPassword }) => {
@@ -89,8 +109,9 @@ export function AuthProvider({ children }) {
 
   const verifyEmail = async ({ email, code }) => {
     const { data } = await api.post("/auth/verify-email", { email, code });
-    setUser(data.user);
-    return data.user;
+    const normalizedUser = normalizeUser(data.user);
+    setUser(normalizedUser);
+    return normalizedUser;
   };
 
   const resendVerification = async (email) => {

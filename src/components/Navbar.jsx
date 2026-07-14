@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { FiHome, FiGrid, FiInfo, FiMail, FiLogIn, FiUserPlus, FiLogOut, FiMenu, FiX, FiCompass, FiLayers, FiMessageSquare, FiTarget, FiHeart, FiAward, FiHelpCircle } from "react-icons/fi";
+import { FiHome, FiGrid, FiInfo, FiMail, FiLogIn, FiUserPlus, FiLogOut, FiMenu, FiX, FiCompass, FiLayers, FiMessageSquare, FiTarget, FiHeart, FiAward, FiHelpCircle, FiUser } from "react-icons/fi";
 
 const navLinkClass = ({ isActive }) =>
   `link-underline flex items-center gap-2 rounded-full px-3 py-1.5 text-sm transition-colors ${
@@ -127,7 +127,7 @@ export default function Navbar() {
                 <span className="flex h-7 w-7 items-center justify-center rounded-full border border-(--color-blue) text-[10px] font-semibold text-(--color-blue)">
                   {initials || "?"}
                 </span>
-                {user?.name?.split(" ")[0] || "Account"}
+                {user?.username ? `@${user.username}` : (user?.name?.split(" ")[0] || "Account")}
               </span>
               <button onClick={logout} className="btn btn-outline-red">
                 <FiLogOut />
@@ -211,10 +211,10 @@ export default function Navbar() {
             {user ? (
               <>
                 <span className="flex items-center gap-2 px-2 font-mono-label text-xs text-(--color-muted)">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-(--color-blue) text-[10px] font-semibold text-(--color-blue)">
-                    {initials || "?"}
-                  </span>
-                  {user?.name}
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full border border-(--color-blue) text-[10px] font-semibold text-(--color-blue)">
+                      {initials || "?"}
+                    </span>
+                    {user?.username || user?.name}
                 </span>
                 <button
                   onClick={() => {

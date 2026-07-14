@@ -1,11 +1,16 @@
 import { useState } from "react";
-import { FiX, FiUser, FiMail, FiSave } from "react-icons/fi";
+import { FiX, FiUser, FiMail, FiSave, FiPhone } from "react-icons/fi";
 import { useAuth } from "../context/AuthContext";
 import PropTypes from "prop-types";
 
 export default function EditProfileModal({ onClose }) {
   const { user, updateProfile } = useAuth();
-  const [form, setForm] = useState({ name: user?.name || "", email: user?.email || "" });
+  const [form, setForm] = useState({
+    name: user?.name || "",
+    email: user?.email || "",
+    username: user?.username || "",
+    phone: user?.phone || "",
+  });
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
@@ -55,6 +60,33 @@ export default function EditProfileModal({ onClose }) {
           <input
             name="name"
             value={form.name}
+            onChange={handleChange}
+            required
+            className="w-full border-b border-(--color-grid-line-strong) bg-transparent py-2 text-white outline-none transition-colors focus:border-(--color-blue)"
+          />
+        </div>
+
+        <div>
+          <label className="mb-1 flex items-center gap-2 text-xs uppercase tracking-widest text-(--color-muted)">
+            <FiUser /> Username
+          </label>
+          <input
+            name="username"
+            value={form.username}
+            onChange={handleChange}
+            required
+            minLength={3}
+            className="w-full border-b border-(--color-grid-line-strong) bg-transparent py-2 text-white outline-none transition-colors focus:border-(--color-blue)"
+          />
+        </div>
+
+        <div>
+          <label className="mb-1 flex items-center gap-2 text-xs uppercase tracking-widest text-(--color-muted)">
+            <FiPhone /> Phone
+          </label>
+          <input
+            name="phone"
+            value={form.phone}
             onChange={handleChange}
             required
             className="w-full border-b border-(--color-grid-line-strong) bg-transparent py-2 text-white outline-none transition-colors focus:border-(--color-blue)"

@@ -4,7 +4,7 @@ import { api } from "../Api/api";
 import EditProfileModal from "../components/EditProfile";
 import ChangePasswordModal from "../components/ChangePassword";
 import { Link } from "react-router-dom";
-import { FiGrid, FiMail, FiEdit2, FiLock, FiLogOut, FiCalendar, FiShield, FiCompass, FiArrowRight, FiZap } from "react-icons/fi";
+import { FiGrid, FiMail, FiEdit2, FiLock, FiLogOut, FiCalendar, FiShield, FiCompass, FiArrowRight, FiZap, FiUser, FiPhone, FiHash } from "react-icons/fi";
 
 export default function Dashboard() {
   const { user, logout } = useAuth();
@@ -30,6 +30,16 @@ export default function Dashboard() {
     ? new Date(user.createdAt).toLocaleDateString("en-US", { month: "short", year: "numeric" })
     : null;
 
+  const phoneNumber = user?.phone || user?.mobile || user?.phoneNumber || "";
+  const userId = user?.userId || user?.id || user?._id || user?.uuid || "Not assigned";
+
+  const profileDetails = [
+    { label: "Email", value: user?.email || "Not provided", icon: FiMail },
+    { label: "Username", value: user?.username || "Not provided", icon: FiUser },
+    { label: "Phone", value: phoneNumber || "Not provided", icon: FiPhone },
+    { label: "User ID", value: userId, icon: FiHash },
+  ].filter((detail) => detail.value);
+
   return (
     <main className="page-shell flex min-h-screen items-center justify-center px-6 pb-20 pt-28 md:px-12">
       <div className="w-full max-w-2xl">
@@ -51,9 +61,24 @@ export default function Dashboard() {
                 <h1 className="text-2xl font-semibold text-white">
                   {message || user?.name || "Welcome back"}
                 </h1>
-                <p className="mt-1 flex items-center gap-1 text-sm text-(--color-muted)">
-                  <FiMail /> {user?.email}
-                </p>
+                <div className="mt-3 text-sm text-(--color-muted)">
+                  <p className="flex items-center gap-2">
+                    <FiMail /> {user?.email || "Email not available"}
+                  </p>
+                  {user?.username && (
+                    <p className="mt-1 flex items-center gap-2">
+                      <FiUser /> {user.username}
+                    </p>
+                  )}
+                  {phoneNumber && (
+                    <p className="mt-1 flex items-center gap-2">
+                      <FiPhone /> {phoneNumber}
+                    </p>
+                  )}
+                  <p className="mt-1 flex items-center gap-2">
+                    <FiHash /> {userId}
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -63,13 +88,23 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 border-t border-(--color-grid-line-strong) pt-6 text-xs uppercase tracking-widest text-(--color-muted) sm:grid-cols-2">
-            <span className="flex items-center gap-2 rounded-2xl border border-(--color-grid-line-strong) bg-white/5 px-3 py-3">
+          <div className="mt-8 grid grid-cols-1 gap-3 border-t border-(--color-grid-line-strong) pt-6 sm:grid-cols-2">
+            {profileDetails.map(({ label, value, icon: Icon }) => (
+              <div key={label} className="rounded-2xl border border-(--color-grid-line-strong) bg-white/5 px-3 py-3 text-xs uppercase tracking-widest text-(--color-muted)">
+                <div className="mb-2 flex items-center gap-2">
+                  <Icon className="text-(--color-blue)" />
+                  {label}
+                </div>
+                <div className="text-sm normal-case text-white">{value}</div>
+              </div>
+            ))}
+
+            <span className="flex items-center gap-2 rounded-2xl border border-(--color-grid-line-strong) bg-white/5 px-3 py-3 text-xs uppercase tracking-widest text-(--color-muted)">
               <FiShield className="text-(--color-blue)" />
               Status: <span className="text-white">Active</span>
             </span>
             {memberSince && (
-              <span className="flex items-center gap-2 rounded-2xl border border-(--color-grid-line-strong) bg-white/5 px-3 py-3">
+              <span className="flex items-center gap-2 rounded-2xl border border-(--color-grid-line-strong) bg-white/5 px-3 py-3 text-xs uppercase tracking-widest text-(--color-muted)">
                 <FiCalendar className="text-(--color-blue)" />
                 Member since: <span className="text-white">{memberSince}</span>
               </span>
