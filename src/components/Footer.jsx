@@ -8,7 +8,7 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative border-t border-(--color-grid-line-strong) bg-(--color-blueprint)/90">
+    <footer className="relative border-t border-(--color-grid-line-strong) bg-[rgba(5,7,13,0.9)]">
       <div
         className="h-px w-full"
         style={{
@@ -17,7 +17,7 @@ export default function Footer() {
       />
 
       <div className="px-6 py-14 md:px-12">
-        <div className="mx-auto flex max-w-6xl flex-col gap-10 md:flex-row md:items-start md:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col gap-10 rounded-[1.75rem] border border-(--color-grid-line-strong) bg-white/5 p-6 md:flex-row md:items-start md:justify-between md:p-8">
           <div className="max-w-xs">
             <p className="flex items-center gap-2 text-xl font-semibold text-white">
               <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-(--color-red)" />
@@ -52,23 +52,23 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"
-                className="flex h-10 w-10 items-center justify-center border border-(--color-grid-line-strong) text-(--color-muted) transition-all hover:border-(--color-blue) hover:text-(--color-blue) hover:shadow-[0_0_14px_var(--color-blue-glow)]"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-(--color-grid-line-strong) bg-black/20 text-(--color-muted) transition-all hover:-translate-y-0.5 hover:border-(--color-blue) hover:text-(--color-blue) hover:shadow-[0_0_14px_var(--color-blue-glow)]"
               >
                 <FaWhatsapp />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/shughar-enterprises-cyber"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-10 w-10 items-center justify-center border border-(--color-grid-line-strong) text-(--color-muted) transition-all hover:border-(--color-blue) hover:text-(--color-blue) hover:shadow-[0_0_14px_var(--color-blue-glow)]"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-(--color-grid-line-strong) bg-black/20 text-(--color-muted) transition-all hover:-translate-y-0.5 hover:border-(--color-blue) hover:text-(--color-blue) hover:shadow-[0_0_14px_var(--color-blue-glow)]"
               >
                 <FiLinkedin />
               </a>
               <a
-                href="mailto:hello@shughar.dev"
+                href="mailto:shugharenterprises@gmail.com"
                 aria-label="Email"
-                className="flex h-10 w-10 items-center justify-center border border-(--color-grid-line-strong) text-(--color-muted) transition-all hover:border-(--color-red) hover:text-(--color-red) hover:shadow-[0_0_14px_var(--color-red-glow)]"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-(--color-grid-line-strong) bg-black/20 text-(--color-muted) transition-all hover:-translate-y-0.5 hover:border-(--color-red) hover:text-(--color-red) hover:shadow-[0_0_14px_var(--color-red-glow)]"
               >
                 <FiMail />
               </a>

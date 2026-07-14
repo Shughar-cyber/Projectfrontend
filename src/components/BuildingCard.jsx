@@ -84,7 +84,7 @@ export default function BuildingCard({ variant, image, name, category, location,
   const hasStats = location || floors || year;
 
   return (
-    <div className="corner-frame group relative flex flex-col overflow-hidden border border-(--color-grid-line-strong) bg-(--color-blueprint-light)/60 transition-all duration-300 hover:border-(--color-blue)/40 hover:shadow-lg hover:shadow-(--color-blue)/5 sm:flex-row">
+    <div className="corner-frame group relative flex flex-col overflow-hidden rounded-[1.5rem] border border-(--color-grid-line-strong) bg-[rgba(10,13,20,0.72)] transition-all duration-300 hover:-translate-y-1 hover:border-(--color-blue)/40 hover:shadow-[0_18px_60px_rgba(0,0,0,0.28)] sm:flex-row">
 
       <div className="relative h-56 w-full shrink-0 overflow-hidden sm:h-auto sm:w-72">
         {image ? (
@@ -97,6 +97,9 @@ export default function BuildingCard({ variant, image, name, category, location,
             />
 
             <div className="absolute inset-0 bg-linear-to-t from-(--color-blueprint-light) via-(--color-blueprint-light)/20 to-transparent sm:bg-linear-to-r sm:from-transparent sm:via-transparent sm:to-(--color-blueprint-light)/60" />
+            <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-white/80 backdrop-blur-sm">
+              Featured project
+            </div>
           </>
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-(--color-blueprint-lighter)/30">
@@ -113,6 +116,8 @@ export default function BuildingCard({ variant, image, name, category, location,
         )}
         <h3 className="text-xl font-semibold leading-snug text-white">{name}</h3>
         <p className="mt-1 text-sm leading-relaxed text-(--color-muted)">{description}</p>
+
+        <div className="mt-3 h-px w-16 bg-gradient-to-r from-(--color-red)/0 via-(--color-red)/60 to-(--color-blue)/0" />
 
         {hasStats && (
           <div className="font-mono-label mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-(--color-grid-line-strong) pt-4 text-[11px] uppercase tracking-widest text-(--color-muted)">

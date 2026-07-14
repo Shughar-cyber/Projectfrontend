@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { FiHome, FiGrid, FiInfo, FiMail, FiLogIn, FiUserPlus, FiLogOut, FiMenu, FiX, FiCompass,} from "react-icons/fi";
+import { FiHome, FiGrid, FiInfo, FiMail, FiLogIn, FiUserPlus, FiLogOut, FiMenu, FiX, FiCompass, FiLayers, FiMessageSquare, FiTarget, FiHeart, FiAward, FiHelpCircle } from "react-icons/fi";
 
 const navLinkClass = ({ isActive }) =>
   `link-underline flex items-center gap-2 rounded-full px-3 py-1.5 text-sm transition-colors ${
@@ -14,6 +14,21 @@ export default function Navbar() {
   const { user, logout } = useAuth();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const isAbout = location.pathname === "/about";
+
+  const scrollToSection = (id, page = "home") => {
+    setOpen(false);
+    const targetPath = page === "about" ? "/about" : "/";
+    const isCurrentPage = page === "about" ? isAbout : isHome;
+    if (!isCurrentPage) {
+      window.location.href = `${targetPath}#${id}`;
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -30,6 +45,18 @@ export default function Navbar() {
     { to: "/contact", label: "Contact", icon: FiMail, show: true },
   ];
 
+  const scrollLinks = [
+    { id: "services", label: "Services", icon: FiLayers },
+    { id: "testimonials", label: "Testimonials", icon: FiMessageSquare },
+  ];
+
+  const aboutScrollLinks = [
+    { id: "about-mission", label: "Mission", icon: FiTarget },
+    { id: "about-values", label: "Values", icon: FiHeart },
+    { id: "about-certifications", label: "Awards", icon: FiAward },
+    { id: "about-faq", label: "FAQ", icon: FiHelpCircle },
+  ];
+
   const initials = (user?.name || "")
     .split(" ")
     .map((n) => n[0])
@@ -39,25 +66,23 @@ export default function Navbar() {
 
   return (
     <header
-      className={`corner-frame fixed top-0 z-50 w-full transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-(--color-grid-line-strong) bg-(--color-blueprint)/95 shadow-[0_4px_30px_rgba(0,0,0,0.3)] backdrop-blur-md"
-          : "border-b border-transparent bg-(--color-blueprint)/60 backdrop-blur-sm"
+          ? "border-b border-(--color-grid-line-strong) bg-[rgba(5,7,13,0.9)] shadow-[0_8px_32px_rgba(0,0,0,0.28)] backdrop-blur-xl"
+          : "border-b border-transparent bg-[rgba(5,7,13,0.68)] backdrop-blur-md"
       }`}
     >
       <div className="flex items-center justify-between px-6 py-4 md:px-12">
 
         <Link to="/" className="group flex flex-col leading-tight">
           <span className="flex items-center gap-2 text-lg font-semibold tracking-wide text-white">
-            <span
-              className="pulse-dot h-1.5 w-1.5 rounded-full bg-(--color-red) transition-transform duration-300 group-hover:scale-150"
-            />
+            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-(--color-red) transition-transform duration-300 group-hover:scale-150" />
             SHUGHAR
             <span className="text-(--color-muted) transition-colors duration-300 group-hover:text-(--color-blue)">
               ENTERPRISES
             </span>
           </span>
-          <span className="font-mono-label text-[10px] uppercase tracking-[0.25em] text-(--color-muted)">
+          <span className="font-mono-label mt-1 text-[10px] uppercase tracking-[0.25em] text-(--color-muted)">
             Arch. Portfolio
           </span>
         </Link>
@@ -71,6 +96,28 @@ export default function Navbar() {
                 <span className="uppercase tracking-widest">{label}</span>
               </NavLink>
             ))}
+
+          {user && scrollLinks.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id, "home")}
+              className="link-underline flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-(--color-muted) transition-colors hover:text-white"
+            >
+              <Icon className="text-base" />
+              <span className="uppercase tracking-widest">{label}</span>
+            </button>
+          ))}
+
+          {user && isAbout && aboutScrollLinks.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id, "about")}
+              className="link-underline flex items-center gap-2 rounded-full px-3 py-1.5 text-sm text-(--color-muted) transition-colors hover:text-white"
+            >
+              <Icon className="text-base" />
+              <span className="uppercase tracking-widest">{label}</span>
+            </button>
+          ))}
 
           <span className="mx-3 h-5 w-px bg-(--color-grid-line-strong)" />
 
@@ -112,14 +159,14 @@ export default function Navbar() {
       </div>
 
       <div
-        className="h-px w-full opacity-70"
+        className="h-px w-full opacity-80"
         style={{
           background: "linear-gradient(90deg, transparent, var(--color-red), var(--color-blue), transparent)",
         }}
       />
 
       {open && (
-        <nav className="animate-slide-down flex flex-col gap-1 border-t border-(--color-grid-line-strong) bg-(--color-blueprint) px-6 py-4 md:hidden">
+        <nav className="animate-slide-down flex flex-col gap-1 border-t border-(--color-grid-line-strong) bg-[rgba(5,7,13,0.96)] px-6 py-4 md:hidden">
           {links
             .filter((l) => l.show)
             .map(({ to, label, icon: Icon }) => (
@@ -137,6 +184,28 @@ export default function Navbar() {
                 {label}
               </NavLink>
             ))}
+
+          {user && scrollLinks.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id, "home")}
+              className="flex items-center gap-3 rounded px-2 py-3 text-sm uppercase tracking-widest text-(--color-muted) transition-colors hover:text-white"
+            >
+              <Icon />
+              {label}
+            </button>
+          ))}
+
+          {user && isAbout && aboutScrollLinks.map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id, "about")}
+              className="flex items-center gap-3 rounded px-2 py-3 text-sm uppercase tracking-widest text-(--color-muted) transition-colors hover:text-white"
+            >
+              <Icon />
+              {label}
+            </button>
+          ))}
 
           <div className="mt-2 flex flex-col gap-2 border-t border-(--color-grid-line-strong) pt-4">
             {user ? (
