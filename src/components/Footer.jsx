@@ -78,7 +78,7 @@ export default function Footer() {
         <div className="font-mono-label mx-auto mt-12 flex max-w-6xl flex-col items-center gap-3 border-t border-(--color-grid-line-strong) pt-6 text-center text-[10px] uppercase tracking-[0.2em] text-(--color-muted) md:flex-row md:justify-between md:text-left">
           <p>© {year} Shughar Enterprises. All rights reserved.</p>
           <p className="text-(--color-muted)/70">
-            Built with React · Node.js · MongoDB
+            Discover → Design → Develop → Deliver.
           </p>
           <button
             onClick={scrollToTop}
