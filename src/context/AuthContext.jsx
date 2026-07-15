@@ -3,7 +3,7 @@ import { api } from "../Api/api";
 
 const AuthContext = createContext(null);
 
-const INACTIVITY_LIMIT_MS = 5 * 60 * 1000;
+const INACTIVITY_LIMIT_MS = 10 * 60 * 1000;
 
 const normalizeUser = (userData) => {
   if (!userData) return null;

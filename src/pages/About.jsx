@@ -159,7 +159,7 @@ export default function About() {
           </Reveal>
 
           <Reveal delay={0.12} className="relative">
-            <div className="corner-frame rounded-[2rem] border border-white/10 bg-[rgba(5,7,13,0.84)] p-8 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-md">
+            <div className="corner-frame rounded-4xl border border-white/10 bg-[rgba(5,7,13,0.84)] p-8 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur-md">
               <div className="mb-6 flex items-center gap-2 text-sm uppercase tracking-[0.25em] text-(--color-red)">
                 <FiAward /> Design Philosophy
               </div>
@@ -205,7 +205,7 @@ export default function About() {
           </Reveal>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Reveal delay={0.1}>
-              <div className="corner-frame rounded-[1.5rem] border-l-2 border-l-(--color-red) bg-(--color-blueprint)/70 p-8 backdrop-blur-sm">
+              <div className="corner-frame rounded-3xl border-l-2 border-l-(--color-red) bg-(--color-blueprint)/70 p-8 backdrop-blur-sm">
                 <div className="mb-4 flex items-center gap-3 text-xl text-(--color-red)">
                   <FiTarget />
                   <h3 className="font-semibold text-white">Our Mission</h3>
@@ -216,7 +216,7 @@ export default function About() {
               </div>
             </Reveal>
             <Reveal delay={0.16}>
-              <div className="corner-frame rounded-[1.5rem] border-l-2 border-l-(--color-blue) bg-(--color-blueprint)/70 p-8 backdrop-blur-sm">
+              <div className="corner-frame rounded-3xl border-l-2 border-l-(--color-blue) bg-(--color-blueprint)/70 p-8 backdrop-blur-sm">
                 <div className="mb-4 flex items-center gap-3 text-xl text-(--color-blue)">
                   <FiEye />
                   <h3 className="font-semibold text-white">Our Vision</h3>
@@ -244,7 +244,7 @@ export default function About() {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
             {values.map((val, i) => (
               <Reveal key={val.title} delay={0.08 + i * 0.07}>
-                <div className="corner-frame card-glow group rounded-[1.5rem] bg-(--color-blueprint)/70 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-(--color-blueprint)/90">
+                <div className="corner-frame card-glow group rounded-3xl bg-(--color-blueprint)/70 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-(--color-blueprint)/90">
                   <div className="mb-4 text-2xl text-(--color-red) transition-transform duration-300 group-hover:scale-110">
                     {val.icon}
                   </div>
@@ -258,7 +258,7 @@ export default function About() {
 
         <section id="about-certifications" className="mb-24">
           <Reveal delay={0.05}>
-            <div className="corner-frame rounded-[2rem] bg-(--color-blueprint)/70 p-8 backdrop-blur-sm md:p-12">
+            <div className="corner-frame rounded-4xl bg-(--color-blueprint)/70 p-8 backdrop-blur-sm md:p-12">
               <div className="mb-6 flex items-center gap-3">
                 <FiAward className="text-2xl text-(--color-red)" />
                 <h2 className="text-2xl font-semibold text-white md:text-3xl">

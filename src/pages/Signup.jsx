@@ -20,7 +20,6 @@ export default function Signup() {
     e.preventDefault();
     setError("");
 
-    // Basic client-side validation for required feed fields
     if (!form.username || form.username.length < 3) {
       setError("Please provide a username (at least 3 characters).");
       return;

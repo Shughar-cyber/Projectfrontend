@@ -82,7 +82,7 @@ export default function Dashboard() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-(--color-grid-line-strong) bg-gradient-to-br from-(--color-blue)/10 to-(--color-red)/10 px-4 py-3 text-sm text-(--color-muted)">
+            <div className="rounded-2xl border border-(--color-grid-line-strong) bg-linear-to-br from-(--color-blue)/10 to-(--color-red)/10 px-4 py-3 text-sm text-(--color-muted)">
               <p className="font-mono-label text-[10px] uppercase tracking-[0.25em] text-(--color-red)">Status</p>
               <p className="mt-1 text-base font-semibold text-white">Active account</p>
             </div>

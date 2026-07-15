@@ -38,7 +38,7 @@ export default function Contact() {
       <BlueprintBuilding className="pointer-events-none absolute -left-20 top-0 h-180 w-125 opacity-10 md:opacity-15" />
 
       <div className="relative z-10 w-full max-w-2xl">
-        <div className="animate-fade-up mb-10 overflow-hidden rounded-[2rem] border border-(--color-grid-line-strong) bg-[rgba(5,7,13,0.72)] p-8 shadow-[0_22px_80px_rgba(0,0,0,0.25)] backdrop-blur-md md:p-10">
+        <div className="animate-fade-up mb-10 overflow-hidden rounded-4xl border border-(--color-grid-line-strong) bg-[rgba(5,7,13,0.72)] p-8 shadow-[0_22px_80px_rgba(0,0,0,0.25)] backdrop-blur-md md:p-10">
           <p className="font-mono-label mb-3 flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] text-(--color-red)">
             <FiMail /> Contact
           </p>
@@ -75,8 +75,6 @@ export default function Contact() {
             </a>
           ))}
         </div>
-
-        {/* Divider */}
         <div
           className="animate-fade-up my-10 h-px w-full opacity-60"
           style={{
@@ -84,9 +82,7 @@ export default function Contact() {
             background: "linear-gradient(90deg, transparent, var(--color-red), var(--color-blue), transparent)",
           }}
         />
-
-        {/* CTA */}
-        <div className="animate-fade-up mt-2 rounded-[1.5rem] border border-(--color-grid-line-strong) bg-white/5 p-6 text-center" style={{ animationDelay: "0.5s" }}>
+        <div className="animate-fade-up mt-2 rounded-3xl border border-(--color-grid-line-strong) bg-white/5 p-6 text-center" style={{ animationDelay: "0.5s" }}>
           <p className="font-mono-label text-xs uppercase tracking-[0.3em] text-(--color-muted)">
             Prefer a direct email?
           </p>

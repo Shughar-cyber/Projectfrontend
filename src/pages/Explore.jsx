@@ -48,7 +48,7 @@ export default function Explore() {
       <BlueprintBuilding className="pointer-events-none absolute -right-35 top-10 h-140 w-100 opacity-15" />
 
       <div className="relative z-10">
-        <div className="animate-fade-up overflow-hidden rounded-[2rem] border border-(--color-grid-line-strong) bg-[rgba(5,7,13,0.72)] p-6 shadow-[0_22px_80px_rgba(0,0,0,0.25)] backdrop-blur-md md:p-8">
+        <div className="animate-fade-up overflow-hidden rounded-4xl border border-(--color-grid-line-strong) bg-[rgba(5,7,13,0.72)] p-6 shadow-[0_22px_80px_rgba(0,0,0,0.25)] backdrop-blur-md md:p-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl">
               <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-(--color-grid-line-strong) bg-white/5 px-3 py-2 text-[10px] uppercase tracking-[0.3em] text-(--color-muted)">

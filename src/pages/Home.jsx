@@ -161,28 +161,23 @@ export default function Home() {
             </p>
           </Reveal>
 
-          {/* Phone frame */}
           <Reveal delay={0.15} className="mt-10 flex justify-center">
-            <div
-              className="w-full max-w-sm overflow-hidden rounded-[2.5rem] border-4 border-[#2a2a2e] shadow-[0_30px_80px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.05)]"
-              style={{ background: "#1c1c1e" }}
-            >
-              {/* Status bar */}
+            <div className="w-full max-w-sm overflow-hidden rounded-4xl border-4 border-[#2a2a2e] shadow-[0_30px_80px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.05)]" style={{ background: "#1c1c1e" }}>
               <div className="flex items-center justify-between bg-[#1c1c1e] px-6 pt-3 pb-1">
                 <span className="text-[11px] font-semibold text-white">9:41</span>
                 <div className="flex items-center gap-1">
-                  {/* Signal bars */}
+             
                   <svg width="17" height="12" viewBox="0 0 17 12" className="fill-white">
                     <rect x="0" y="6" width="3" height="6" rx="1"/>
                     <rect x="4.5" y="4" width="3" height="8" rx="1"/>
                     <rect x="9" y="2" width="3" height="10" rx="1"/>
                     <rect x="13.5" y="0" width="3" height="12" rx="1"/>
                   </svg>
-                  {/* WiFi */}
+
                   <svg width="16" height="12" viewBox="0 0 16 12" className="fill-white">
                     <path d="M8 9.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm0-3.5a5.5 5.5 0 0 1 4.243 1.757l-1.415 1.414A3.5 3.5 0 0 0 8 8a3.5 3.5 0 0 0-2.828 1.171L3.757 7.757A5.5 5.5 0 0 1 8 6zm0-4a9.5 9.5 0 0 1 7.071 3.101L13.657 6.51A7.5 7.5 0 0 0 8 4a7.5 7.5 0 0 0-5.657 2.51L.929 5.1A9.5 9.5 0 0 1 8 2z"/>
                   </svg>
-                  {/* Battery */}
+
                   <div className="flex items-center gap-0.5">
                     <div className="h-3 w-6 rounded-sm border border-white/60 p-0.5">
                       <div className="h-full w-3/4 rounded-[1px] bg-white" />
@@ -191,8 +186,6 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-
-              {/* App header */}
               <div className="flex items-center justify-between bg-[#1c1c1e] px-5 py-3 border-b border-white/10">
                 <div className="flex items-center gap-2 text-[#0a84ff] text-sm">
                   <svg width="8" height="14" viewBox="0 0 8 14" className="fill-[#0a84ff]">
@@ -205,15 +198,12 @@ export default function Home() {
                   <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
                 </svg>
               </div>
-
-              {/* Services list */}
-              <div className="flex flex-col bg-[#1c1c1e] divide-y divide-white/5 max-h-[420px] overflow-y-auto">
+              <div className="flex flex-col bg-[#1c1c1e] divide-y divide-white/5 max-h-105 overflow-y-auto">
                 {services.map((service, i) => (
                   <div
                     key={service.title}
                     className="group flex items-center gap-4 px-5 py-4 transition-all duration-200 active:bg-white/5 hover:bg-white/5"
                   >
-                    {/* App icon */}
                     <div
                       className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] text-xl text-white shadow-lg transition-transform duration-300 group-hover:scale-110"
                       style={{
@@ -232,22 +222,16 @@ export default function Home() {
                     >
                       {service.icon}
                     </div>
-
-                    {/* Text */}
                     <div className="flex-1 min-w-0">
                       <p className="font-semibold text-white text-sm">{service.title}</p>
                       <p className="mt-0.5 text-xs text-[#8e8e93] leading-relaxed line-clamp-2">{service.description}</p>
                     </div>
-
-                    {/* iOS chevron */}
                     <svg width="7" height="12" viewBox="0 0 7 12" className="shrink-0 fill-none stroke-[#3a3a3c] stroke-2 transition-colors duration-200 group-hover:stroke-[#0a84ff]">
                       <path d="M1 1l5 5-5 5"/>
                     </svg>
                   </div>
                 ))}
               </div>
-
-              {/* Home indicator */}
               <div className="flex justify-center bg-[#1c1c1e] pb-3 pt-2">
                 <div className="h-1 w-32 rounded-full bg-white/30" />
               </div>
@@ -265,11 +249,9 @@ export default function Home() {
             </p>
           </Reveal>
 
-          {/* WhatsApp chat container */}
           <Reveal delay={0.15} className="mt-10 flex justify-center">
             <div className="w-full max-w-xl overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
 
-              {/* WhatsApp header bar */}
               <div className="flex items-center gap-3 bg-[#075e54] px-4 py-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#128c7e] text-sm font-bold text-white">
                   SE
@@ -284,15 +266,12 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Chat wallpaper + messages */}
               <div
                 className="flex flex-col gap-3 p-4"
                 style={{
                   background: "#0b141a",
                   backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
-                }}
-              >
-                {/* Date badge */}
+                }}>
                 <div className="flex justify-center">
                   <span className="rounded-full bg-[#182229] px-3 py-1 text-[10px] text-[#8696a0]">
                     Today
@@ -307,12 +286,9 @@ export default function Home() {
                       key={review.client}
                       className={`flex items-end gap-2 ${ isRight ? "flex-row-reverse" : "flex-row" }`}
                     >
-                      {/* Avatar */}
                       <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ${ isRight ? "bg-[#00a884]" : "bg-[#53bdeb]" }`}>
                         {review.client.charAt(0)}
                       </div>
-
-                      {/* Bubble */}
                       <div
                         className={`relative max-w-[80%] rounded-lg px-3 pt-1 pb-2 shadow-md ${
                           isRight
@@ -320,18 +296,11 @@ export default function Home() {
                             : "rounded-tl-none bg-[#202c33] text-white"
                         }`}
                       >
-                        {/* Sender name */}
                         <p className={`mb-1 text-[11px] font-semibold ${ isRight ? "text-[#00a884]" : "text-[#53bdeb]" }`}>
                           {review.client} · <span className="font-normal opacity-70">{review.role}</span>
                         </p>
-
-                        {/* Stars */}
                         <div className="mb-1 text-xs">⭐⭐⭐⭐⭐</div>
-
-                        {/* Message text */}
                         <p className="text-sm leading-relaxed text-[#e9edef]">{review.quote}</p>
-
-                        {/* Timestamp + ticks */}
                         <div className="mt-1 flex items-center justify-end gap-1">
                           <span className="text-[10px] text-[#8696a0]">{time}</span>
                           {isRight && (
@@ -347,7 +316,6 @@ export default function Home() {
                 })}
               </div>
 
-              {/* WhatsApp input bar (decorative) */}
               <div className="flex items-center gap-3 bg-[#202c33] px-4 py-3">
                 <div className="flex-1 rounded-full bg-[#2a3942] px-4 py-2 text-xs text-[#8696a0]">
                   Message...

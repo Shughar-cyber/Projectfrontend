@@ -273,7 +273,6 @@ main {
   animation: kenburns 20s ease-in-out infinite alternate;
 }
 
-/* Floating animation for decorative elements */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%  { transform: translateY(-10px); }
@@ -282,7 +281,6 @@ main {
   animation: float 5s ease-in-out infinite;
 }
 
-/* Shimmer / gradient text sweep */
 @keyframes shimmer-text {
   0%   { background-position: -200% center; }
   100% { background-position:  200% center; }
@@ -296,7 +294,6 @@ main {
   animation: shimmer-text 4s linear infinite;
 }
 
-/* Scroll reveal — add .reveal class, JS toggles .revealed */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -307,12 +304,9 @@ main {
   transform: translateY(0);
 }
 
-/* Glow pulse on hover for cards */
 .card-glow:hover {
   box-shadow: 0 0 28px rgba(45, 212, 255, 0.12), 0 4px 24px rgba(0,0,0,0.4);
 }
-
-/* Slide in from left */
 @keyframes slide-in-left {
   from { opacity: 0; transform: translateX(-20px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -321,7 +315,6 @@ main {
   animation: slide-in-left 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Scale in */
 @keyframes scale-in {
   from { opacity: 0; transform: scale(0.92); }
   to   { opacity: 1; transform: scale(1); }
@@ -330,7 +323,6 @@ main {
   animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Gradient border glow on corner-frame hover */
 .corner-frame {
   transition: box-shadow 0.3s ease;
 }
